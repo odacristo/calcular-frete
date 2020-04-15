@@ -4,13 +4,13 @@
 
 
 # 
-# implementa funcao de calculo de preços e prazos 
-# para serviços dos correios
+# implementa funcao de calculo de preÃ§os e prazos 
+# para serviÃ§os dos correios
 #
 if( !function_exists( 'calculaFrete' ))
 {
    function calculaFrete(
-      $cod_servico, /* codigo do servico desejado */
+      $cod_servico, /* cod of service */
       $cep_origem,  /* cep de origem, apenas numeros */
       $cep_destino, /* cep de destino, apenas numeros */
       $peso,        /* valor dado em Kg incluindo a embalagem. 0.1, 0.3, 1, 2 ,3 , 4 */
@@ -27,7 +27,7 @@ if( !function_exists( 'calculaFrete' ))
       if( $cod_servico == 'PAC' ) $cod_servico = 41106 ;
 
       # ###########################################
-      # Código dos Principais Serviços dos Correios
+      # CÃ³digo dos Principais ServiÃ§os dos Correios
       # 41106 PAC sem contrato
       # 40010 SEDEX sem contrato
       # 40045 SEDEX a Cobrar, sem contrato

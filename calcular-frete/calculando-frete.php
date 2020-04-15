@@ -11,13 +11,13 @@ if( !function_exists( 'calculaFrete' ))
 {
    function calculaFrete(
       $cod_servico, /* cod of service */
-      $cep_origem,  /* cep de origem, apenas numeros */
-      $cep_destino, /* cep de destino, apenas numeros */
-      $peso,        /* valor dado em Kg incluindo a embalagem. 0.1, 0.3, 1, 2 ,3 , 4 */
-      $altura,      /* altura do produto em cm incluindo a embalagem */
-      $largura,     /* altura do produto em cm incluindo a embalagem */
-      $comprimento, /* comprimento do produto incluindo embalagem em cm */
-      $valor_declarado='0' /* indicar 0 caso nao queira o valor declarado */
+      $cep_origem,  /* origin zip code, only numbers */
+      $cep_destino, /* destination zip code, apenas numeros */
+      $peso,        /* value given in Kg including the packaging: 0.1, 0.3, 1, 2 ,3 , 4 */
+      $altura,      /* product height in cm including packaging */
+      $largura,     /* product width in cm including packaging */
+      $comprimento, /* product length including packaging in cm */
+      $valor_declarado='0' /* indicate 0 if you do not want the declared value */
    ){
 
       $cod_servico = strtoupper( $cod_servico );
@@ -27,11 +27,11 @@ if( !function_exists( 'calculaFrete' ))
       if( $cod_servico == 'PAC' ) $cod_servico = 41106 ;
 
       # ###########################################
-      # Código dos Principais Serviços dos Correios
-      # 41106 PAC sem contrato
-      # 40010 SEDEX sem contrato
-      # 40045 SEDEX a Cobrar, sem contrato
-      # 40215 SEDEX 10, sem contrato
+      # Official Post Codes for services
+      # 41106 PAC without contract
+      # 40010 SEDEX without contract
+      # 40045 SEDEX a Cobrar, without contract
+      # 40215 SEDEX 10, without contract
       # ###########################################
 
       $correios = "http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx?nCdEmpresa=&sDsSenha=&sCepOrigem=".$cep_origem."&sCepDestino=".$cep_destino."&nVlPeso=".$peso."&nCdFormato=1&nVlComprimento=".$comprimento."&nVlAltura=".$altura."&nVlLargura=".$largura."&sCdMaoPropria=n&nVlValorDeclarado=".$valor_declarado."&sCdAvisoRecebimento=n&nCdServico=".$cod_servico."&nVlDiametro=0&StrRetorno=xml";
